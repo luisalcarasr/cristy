@@ -7,7 +7,7 @@ const inital = new Date('2023-11-20');
 const today = new Date();
 
 // Calculate the difference in milliseconds
-const differenceInMilliseconds = inital - today;
+const differenceInMilliseconds = inital.getTime() - today.getTime();
 
 // Convert milliseconds to days
 const days = Math.trunc(Math.abs(differenceInMilliseconds / (1000 * 60 * 60 * 24)));
