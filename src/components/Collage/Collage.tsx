@@ -4,7 +4,7 @@ export const Collage = () => {
   return (
     <>
       {
-        new Array(500).fill(0).map(() => (
+        new Array(50).fill(0).map(() => (
           <div style={{
             userSelect: 'none',
             display: 'inline-block',
