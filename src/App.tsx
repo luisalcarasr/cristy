@@ -1,7 +1,6 @@
-import './App.css';
 import { useEffect, useState } from 'react';
 import { formatDistanceToNow, formatDuration, intervalToDuration } from 'date-fns';
-import { Counter } from './Counter';
+import { Counter } from './components/Counter';
 
 const BEGINNING = new Date('2023-11-20');
 
