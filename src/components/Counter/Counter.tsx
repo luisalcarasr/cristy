@@ -15,10 +15,10 @@ export const Counter = () => {
   }, [])
   return (<div className="flex justify-center">
     <Slot content={duration.years} label="Years"/>
-    <Slot content={duration.months} label="Months"/>
-    <Slot content={duration.days} label="Days"/>
-    <Slot content={duration.hours} label="Hours"/>
-    <Slot content={duration.minutes} label="Minutes"/>
+    <Slot content={duration.months ?? 0} label="Months"/>
+    <Slot content={duration.days ?? 0} label="Days"/>
+    <Slot content={duration.hours ?? 0} label="Hours"/>
+    <Slot content={duration.minutes ?? 0} label="Minutes"/>
     <Slot content={duration.seconds ?? 0} label="Seconds"/>
   </div>)
 };
