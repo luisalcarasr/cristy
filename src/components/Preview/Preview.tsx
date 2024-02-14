@@ -1,4 +1,5 @@
 import { useRandomPicture } from "../../hooks/useRandomPicture";
+import { throwConfetti } from "../../utils";
 import { ValentinesDay } from "../Decorations/ValentinesDay";
 
 export const Preview = () => {
@@ -7,17 +8,12 @@ export const Preview = () => {
     randomize()
   };
 
-  
   return (
     <div className="inline-block bg-gray-50 w-80 rounded-sm shadow-lg m-2 p-3">
       <div className="bg-gray-200 h-auto">
-        <img src={picture} onClick={onClickHandler}/> 
+        <img src={picture} onClick={onClickHandler} onLoad={() => throwConfetti()}/> 
       </div>
-      <div style={{
-        position: 'absolute',
-        left: '50%',
-        transform: 'translate(-50%, -80%)',
-      }}>
+      <div className="text-center mt-2 user-select-none">
         <ValentinesDay />
       </div>
     </div>
