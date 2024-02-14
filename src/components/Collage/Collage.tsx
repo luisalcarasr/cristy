@@ -1,5 +1,6 @@
 import { Picture } from "../Picture";
 import { usePictures } from "../../hooks/usePictures";
+import { randomPosition } from "../../utils";
 
 
 export const Collage = () => {
@@ -9,14 +10,14 @@ export const Collage = () => {
   return (
     <>
       {
-        pictures.map((picture) => (
-          <div style={{
+        pictures.map((picture, i) => (
+          <div key={picture} style={{
             userSelect: 'none',
             display: 'inline-block',
             position: 'absolute',
-            top: Math.random() * (document.documentElement.clientHeight) +'px',
-            left: Math.random() * (document.documentElement.clientWidth) + 'px',
-            transform: `rotate(${(Math.random() * 120) - 60}deg) translate(-50%, -50%)`,
+            top: randomPosition(i, pictures.length).y,
+            left: randomPosition(i, pictures.length).x,
+            transform: `rotate(${(Math.random() * 120) - 60}deg)`,
           }}>
           <Picture src={picture} />
           </div>
