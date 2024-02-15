@@ -1,3 +1,4 @@
+import { shuffle } from 'lodash';
 import { useEffect, useState } from "react";
 
 const BASE_URL = 'https://raw.githubusercontent.com/luisalcarasr/cristy/pictures';
@@ -16,5 +17,5 @@ export const usePictures = (): string[] => {
       );
     })
   }, [])
-  return pictures;
+  return shuffle(pictures);
 }

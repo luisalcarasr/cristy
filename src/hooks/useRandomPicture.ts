@@ -3,19 +3,17 @@ import { usePictures } from "./usePictures";
 
 export const useRandomPicture = () => {
   const pictures = usePictures();
-  const [picture, setPicture] = useState(pictures[Math.floor(Math.random() * pictures.length)]);
+  const [defaultPicture] = pictures;
+  const [picture, setPicture] = useState(defaultPicture);
 
   const randomize = () => {
     setPicture(pictures[Math.floor(Math.random() * pictures.length)]);
   };
 
   useEffect(() => {
-    setPicture(pictures[Math.floor(Math.random() * pictures.length)]);
-  }, [pictures]);
+    setPicture(defaultPicture);
+  }, [defaultPicture]);
 
-  
-  console.log(picture);
-  
   return {
     picture,
     randomize

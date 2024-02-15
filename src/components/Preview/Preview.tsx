@@ -9,7 +9,7 @@ export const Preview = () => {
   };
 
   return (
-    <div className="inline-block bg-gray-50 w-80 rounded-sm shadow-lg m-2 p-3">
+    <div className="inline-block bg-gray-50 w-80 rounded-sm shadow-2xl m-2 p-3">
       <div className="bg-gray-200 h-auto">
         <img src={picture} onClick={onClickHandler} onLoad={() => throwConfetti()}/> 
       </div>
