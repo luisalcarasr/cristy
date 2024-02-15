@@ -1,7 +1,7 @@
 export const throwConfetti = () => {
   const defaults = {
     spread: 360,
-    ticks: 100,
+    ticks: 0,
     gravity: 0,
     decay: 0.94,
     startVelocity: 30,
