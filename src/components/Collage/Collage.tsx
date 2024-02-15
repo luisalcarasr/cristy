@@ -1,5 +1,6 @@
 import { Picture } from "../Picture";
 import { usePictures } from "../../hooks/usePictures";
+import { shuffle } from "lodash";
 
 
 export const Collage = () => {
@@ -20,7 +21,7 @@ export const Collage = () => {
       zIndex: -1,
     }}>
       {
-        pictures.map((picture) => (
+        shuffle(pictures).map((picture) => (
           <div key={picture} style={{
             userSelect: 'none',
             transform: `rotate(${(Math.random() * 120) - 60}deg)`,

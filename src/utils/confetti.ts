@@ -12,21 +12,21 @@ export const throwConfetti = () => {
   // @ts-expect-error as confetti is a global function
   confetti({
     ...defaults,
-    particleCount: 100,
+    particleCount: 600,
     scalar: 2,
   });
   
   // @ts-expect-error as confetti is a global function
   confetti({
     ...defaults,
-    particleCount: 50,
+    particleCount: 300,
     scalar: 3,
   });
   
   // @ts-expect-error as confetti is a global function
   confetti({
     ...defaults,
-    particleCount: 25,
+    particleCount: 150,
     scalar: 4,
   });
 }
