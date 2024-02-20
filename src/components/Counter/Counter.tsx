@@ -2,7 +2,7 @@ import { Slot } from "./Slot";
 import { useEffect, useState } from 'react';
 import { intervalToDuration } from 'date-fns';
 
-const BEGINNING = new Date('2023-11-20 22:00:00 GMT-0600');
+const BEGINNING = new Date('2023-11-20 00:00:00 GMT-0600');
 
 export const Counter = () => {
   const [duration, setDuration] = useState(intervalToDuration({start: BEGINNING, end: new Date()}))
