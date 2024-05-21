@@ -1,30 +1,25 @@
 import {Picture} from "../Picture";
 import {usePictures} from "../../hooks/usePictures";
-import Masonry from "react-responsive-masonry"
-import {useEffect, useState} from "react";
-import {shuffle} from "lodash";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 
 export const Collage = () => {
   const pictures = usePictures()
-  const [shuffledPictures, setShuffledPictures] = useState<string[]>(pictures)
-
-  useEffect(() => {
-    const intervalId = (setInterval(() => {
-      setShuffledPictures(shuffle(pictures))
-      return () => clearInterval(intervalId);
-    }, 10 * 1000))
-
-  }, [pictures]);
-
-
   return (
-    <Masonry columnsCount={8}>
-      {
-        (shuffledPictures.length === 0 ? pictures : shuffledPictures).map((picture) => (
-          <Picture src={picture}/>
-        ))
-      }
-    </Masonry>
+    <ResponsiveMasonry
+      columnsCountBreakPoints={{350: 2, 750: 2, 900: 8}}
+    >
+      <Masonry>
+        {
+          pictures.map((picture) => (
+            <div className="inline shadow p-2 bg-white m-4" style={{
+              transform: `rotate(${(Math.random() * 120) - 60}deg)`,
+            }}>
+              <Picture src={picture}/>
+            </div>
+          ))
+        }
+      </Masonry>
+    </ResponsiveMasonry>
   );
 }
