@@ -1,5 +1,6 @@
 import {usePictures} from "../../hooks/usePictures.ts";
 import ImageGallery from 'react-image-gallery'
+import {ValentinesDay} from "../Decorations/ValentinesDay.tsx";
 
 export const Preview = () => {
   const pictures = usePictures();
@@ -12,6 +13,9 @@ export const Preview = () => {
           thumbnail: i,
         }))}
         />
+      </div>
+      <div className="text-center mt-2 user-select-none">
+        <ValentinesDay/>
       </div>
     </div>
   );
