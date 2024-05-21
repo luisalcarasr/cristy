@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 const BASE_URL = 'https://raw.githubusercontent.com/luisalcarasr/cristy/pictures';
 
@@ -6,7 +6,7 @@ export const usePictures = (): string[] => {
   const [pictures, setPictures] = useState([]);
 
   useEffect(() => {
-    fetch( `${BASE_URL}/manifest.json`).then((response) => {
+    fetch(`${BASE_URL}/manifest.json`).then((response) => {
       return response.json();
     }).then(({files}) => {
       setPictures(

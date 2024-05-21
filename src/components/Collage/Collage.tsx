@@ -1,35 +1,30 @@
-import { Picture } from "../Picture";
-import { usePictures } from "../../hooks/usePictures";
-import { shuffle } from "lodash";
+import {Picture} from "../Picture";
+import {usePictures} from "../../hooks/usePictures";
+import Masonry from "react-responsive-masonry"
+import {useEffect, useState} from "react";
+import {shuffle} from "lodash";
 
 
 export const Collage = () => {
   const pictures = usePictures()
+  const [shuffledPictures, setShuffledPictures] = useState<string[]>(pictures)
+
+  useEffect(() => {
+    const intervalId = (setInterval(() => {
+      setShuffledPictures(shuffle(pictures))
+      return () => clearInterval(intervalId);
+    }, 10 * 1000))
+
+  }, [pictures]);
 
 
   return (
-    <div style={{
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      gap: '10px',
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-      padding: '20px',
-      boxSizing: 'border-box',
-      zIndex: -1,
-    }}>
+    <Masonry columnsCount={8}>
       {
-        shuffle(pictures).map((picture) => (
-          <div key={picture} style={{
-            userSelect: 'none',
-            transform: `rotate(${(Math.random() * 120) - 60}deg)`,
-          }}>
-          <Picture src={picture} />
-          </div>
+        (shuffledPictures.length === 0 ? pictures : shuffledPictures).map((picture) => (
+          <Picture src={picture}/>
         ))
       }
-    </div>
+    </Masonry>
   );
 }
